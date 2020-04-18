@@ -1,5 +1,5 @@
 {
-    "name": "laravel/laravel",
+    "name": "Konkursbo",
     "type": "project",
     "description": "The Laravel Framework.",
     "keywords": [
@@ -9,12 +9,19 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
+        "caouecs/laravel-lang": "~6.0",
+        "encore/laravel-admin": "^1.7",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
-        "guzzlehttp/guzzle": "^6.3",
+        "guzzlehttp/guzzle": "^6.5",
+        "laravel-admin-ext/helpers": "^1.2",
+        "laravel-admin-ext/media-manager": "^1.1",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
-        "livewire/livewire": "^1.0"
+        "livewire/livewire": "^1.0",
+        "spatie/laravel-translation-loader": "^2.6",
+        "symfony/event-dispatcher": "5.0.7",
+        "torzer/awesome-landlord": "^3.3"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

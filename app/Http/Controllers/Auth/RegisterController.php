@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\AdvokatFirma;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -51,9 +52,21 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'firma_id' => ['required', 'integer'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        $firmas = AdvokatFirma::all();
+        return view('auth.register', compact('firmas'));
     }
 
     /**
@@ -66,6 +79,7 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'firma_id' => $data['firma_id'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
