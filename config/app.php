@@ -227,7 +227,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Landlord'   => Torzer\Awesome\Landlord\Facades\Landlord::class,
-
+        'auth.password.tokens' => Illuminate\Auth\Passwords\TokenRepositoryInterface::class
     ],
 
 ];

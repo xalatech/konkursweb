@@ -23,4 +23,5 @@ Route::group([
     $router->resource('lonns-arters', LonnsArterController::class);
     $router->resource('lonns-datas', LonnsDataController::class);
     $router->resource('regnskaps', RegnskapController::class);
+    $router->resource('languages', LanguageController::class);
 });

@@ -6,7 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\AdvokatFirma;
+use App\Notifications\FirmaRegistration;
 use Torzer\Awesome\Landlord\BelongsToTenants;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -39,4 +41,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function generatePassword()
+    {
+        return bcrypt(Str::random(8));
+    }
+
+    public static function sendWelcomeEmail($user)
+    {
+        $token = app('auth.password.broker')->createToken($user);
+
+        $user->notify(new FirmaRegistration($token));
+    }
 }

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\AdvokatFirma;
+use App\Notifications\FirmaRegistration;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -62,14 +65,16 @@ class AdvokatFirmaController extends Controller
         $firma->pris = $request->pris;
         $firma->save();
 
-        $hashed_random_password = Hash::make(Str::random(8));
-
+        $hashed_random_password = User::generatePassword();
         $user = User::create([
             'name' => $request->kontaktperson,
             'firma_id' => $firma->id,
             'email' => $request->epost,
             'password' => $hashed_random_password
         ]);
+
+        User::sendWelcomeEmail($user);
+
         return redirect('firma');
     }
 

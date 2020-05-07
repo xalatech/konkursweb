@@ -25,7 +25,7 @@ class CreateAdvokatFirmasTable extends Migration
             $table->string('organisasjonsnummer')->nullable();
             $table->string('kontaktperson')->nullable();
             $table->string('fakturamottaker')->nullable();
-            $table->decimal('pris', 10, 2)->default(0.00);
+            $table->decimal('pris_per_bo', 10, 2)->default(0.00);
             $table->boolean('aktiv')->default(false);
             $table->timestamps();
         });

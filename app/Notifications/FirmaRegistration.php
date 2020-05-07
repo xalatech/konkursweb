@@ -10,15 +10,17 @@ use Illuminate\Notifications\Notification;
 class FirmaRegistration extends Notification
 {
     use Queueable;
+    public $token;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+
+    public function __construct($token)
     {
-        //
+        $this->token = $token;
     }
 
     /**
@@ -40,10 +42,12 @@ class FirmaRegistration extends Notification
      */
     public function toMail($notifiable)
     {
+
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->subject('Ny firma registrert')
+            ->greeting('Hei,')
+            ->line('Takk for at dere har registrert i Konkursbo. Vi har nå opprettet en bruker til dere.')
+            ->action('Trykk her for å lage passord til brukeren', url('/password/reset', $this->token));
     }
 
     /**

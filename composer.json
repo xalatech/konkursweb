@@ -19,6 +19,7 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "livewire/livewire": "^1.0",
+        "mtownsend/xml-to-array": "^1.0",
         "spatie/laravel-translation-loader": "^2.6",
         "symfony/event-dispatcher": "5.0.7",
         "torzer/awesome-landlord": "^3.3"

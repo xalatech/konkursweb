@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\BoInfo;
 use Illuminate\Http\Request;
+use Mtownsend\XmlToArray\XmlToArray;
 
 class BoInfoController extends Controller
 {
@@ -38,6 +39,7 @@ class BoInfoController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'organisasjonsnummer' => 'required',
             'saksnummer' => 'required',
@@ -55,6 +57,27 @@ class BoInfoController extends Controller
 
         return redirect('boinfo');
     }
+
+    public function uploadXML(Request $request)
+    {
+        $xml = file_get_contents($request->xmlfil);
+
+
+        $array = XmlToArray::convert($xml);
+        dd($array);
+
+        $boinfo = new BoInfo();
+        $boinfo->organisasjonsnummer = $request->organisasjonsnummer;
+        $boinfo->saksnummer = $request->saksnummer;
+        $boinfo->debitor = $request->debitor;
+        $boinfo->kommune_id = $request->kommune_id;
+
+        $boinfo->save();
+
+        return redirect('boinfo');
+    }
+
+
 
     /**
      * Display the specified resource.
