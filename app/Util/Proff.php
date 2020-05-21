@@ -2,7 +2,7 @@
 
 namespace App\Util;
 
-use GuzzleHttp\Client;
+use GuzzleHttp\Client as GuzzleClient;
 
 class Proff
 {
@@ -10,7 +10,7 @@ class Proff
 
     public $baseURI;
 
-    public function __construct(Client $client)
+    public function __construct()
     {
         $headers = [
             'Content-Type' => 'application/json',
@@ -18,8 +18,10 @@ class Proff
             'Authorization' => 'Bearer token',
         ];
 
-        $this->client = $client;
-        $this->client['headers'] = $headers;
+        $this->client = new GuzzleClient([
+            'headers' => $headers
+        ]);
+
         $this->baseURI = env('PROFF_BASE_URL');
     }
 
