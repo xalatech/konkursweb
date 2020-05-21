@@ -18,10 +18,8 @@ class Proff
             'Authorization' => 'Bearer token',
         ];
 
-        $this->client = $client([
-            'headers' => $headers
-        ]);
-
+        $this->client = $client;
+        $this->client['headers'] = $headers;
         $this->baseURI = env('PROFF_BASE_URL');
     }
 
