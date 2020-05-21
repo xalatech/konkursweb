@@ -18,7 +18,7 @@
                             <div class="col-md-4">
                                 <input id="organisasjonsnummer" type="text" class="form-control @error('organisasjonsnummer') is-invalid @enderror" name="organisasjonsnummer" value="{{ old('organisasjonsnummer') }}" required autocomplete="organisasjonsnummer" autofocus>
 
-                                <button onclick="hentinfo('/proffapi/hent/')" class="btn btn-info mt-2">Hent Info</button>
+                                <button onclick="hentInfo('/proffapi/hent/')" class="btn btn-info mt-2">Hent Info</button>
 
                                 @error('organisasjonsnummer')
                                 <span class="invalid-feedback" role="alert">
