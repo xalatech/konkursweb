@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Http;
 
 class ProffController extends Controller
 {
-    protected $proff;
     public $baseURI;
     public $token;
 
@@ -19,7 +18,10 @@ class ProffController extends Controller
 
     public function hent($org_nr)
     {
-        $response = Http::withToken($this->token)->get($this->baseURI . $org_nr);
+        $response = Http::withHeaders([
+            'Authorization' => 'Token ' . $this->token,
+        ])->get($this->baseURI . $org_nr);
+
         return $response->json();
     }
 }
