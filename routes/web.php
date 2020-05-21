@@ -38,6 +38,7 @@ Route::post('uploadXML', 'BoInfoController@uploadXML')->name('uploadXML');
 
 // Advokatfirma
 Route::resource('firma', 'AdvokatFirmaController');
+Route::get('firma-info', 'AdvokatFirmaController@info')->name('firma.info');
 
 // Åpne data - Enhetsregisteret: API-dokumentasjon
 Route::get('brregapi/hent/{org_nr}', 'BrregController@hent')->name('hent_enhet');
