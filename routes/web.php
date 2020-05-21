@@ -41,3 +41,4 @@ Route::resource('firma', 'AdvokatFirmaController');
 
 // Åpne data - Enhetsregisteret: API-dokumentasjon
 Route::get('brregapi/hent/{org_nr}', 'BrregController@hent')->name('hent_enhet');
+Route::get('proffapi/hent/{org_nr}', 'ProffController@hent')->name('hent_enhet_info');

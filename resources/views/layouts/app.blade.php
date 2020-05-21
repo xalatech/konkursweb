@@ -40,6 +40,9 @@
                         <li class="nav-item ml-3">
                             <a class="nav-link" href="{{ route('firma.create') }}">{{ __('Opprett firma') }}</a>
                         </li>
+                        <li class="nav-item ml-3">
+                            <a class="nav-link" href="{{ route('firma.info') }}">{{ __('Hent info') }}</a>
+                        </li>
 
                         <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ trans('site.login') }}</a>

@@ -20,3 +20,20 @@ function hentOpplysninger(url) {
         });
     }
 }
+
+function hentInfo(url) {
+    event.preventDefault();
+    var orgNr = $("#organisasjonsnummer").val();
+    orgNr = orgNr.replace(/\s/g, '');
+    $("#organisasjonsnummer").val(orgNr);
+
+    if (orgNr != "") {
+        $.ajax({
+            url: url + orgNr,
+            method: "GET",
+            success: function (data) {
+                $(".firma-info").html(JSON.stringify(data));
+            }
+        });
+    }
+}
