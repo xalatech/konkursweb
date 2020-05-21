@@ -17,9 +17,4 @@ class AdvokatFirma extends Model
     {
         $this->hasMany(User::class);
     }
-
-    public function info()
-    {
-        return view('firma.info');
-    }
 }

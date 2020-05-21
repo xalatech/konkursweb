@@ -34,6 +34,11 @@ class AdvokatFirmaController extends Controller
         return view('firma.create');
     }
 
+    public function info()
+    {
+        return view('firma.info');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
