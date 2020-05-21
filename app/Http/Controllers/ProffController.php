@@ -19,7 +19,7 @@ class ProffController extends Controller
 
     public function hent($org_nr)
     {
-        $response = Http::withToken($this->token)->get($this->baseURI . '/' . $org_nr);
+        $response = Http::withToken($this->token)->get($this->baseURI . $org_nr);
         return response()->json($response, 200);
     }
 }
