@@ -35,7 +35,7 @@ class Proff
         try {
             $response = $this->client->request('GET', $url);
         } catch (\Exception $e) {
-            return [];
+            return $e;
         }
 
         return $this->response_handler($response->getBody()->getContents());
