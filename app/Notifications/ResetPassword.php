@@ -42,9 +42,9 @@ class ResetPassword extends Notification implements ShouldQueue
     {
         return (new MailMessage)
             ->subject('Reset password')
-            ->line('You are receiving this email because we received a password reset request for your account.')
-            ->action('Reset Password', route('password.reset.token', ['token' => $this->token]))
-            ->line('If you did not request a password reset, no further action is required.');
+            ->line('Du mottar denne e-posten fordi vi har mottatt en forespørsel om tilbakestilling av passord for kontoen din.')
+            ->action('Tilbakestil Passord', route('password.reset.token', ['token' => $this->token]))
+            ->line('Hvis du ikke ba om tilbakestilling av passord, er ingen ytterligere tiltak nødvendig.');
     }
 
     /**
