@@ -56,7 +56,6 @@ class CreateBoInfosTable extends Migration
             $table->smallInteger('mvaPliktig');
             $table->string('bankHovedforbindelse');
             $table->date('begjaeringsDato');
-            $table->date('begjaeringsDatoInnkommetTingretten');
             $table->time('begjaeringsKlokkeslettInnkommetTingretten');
 
             $table->date('ekstraDato1');
