@@ -27,7 +27,6 @@ class CreateBoInfosTable extends Migration
             $table->string('vaarReferanse');
             $table->string('journalNr');
             $table->string('advokat');
-            $table->string('boetsBankKontoNr');
             $table->smallInteger('oppbud');
             $table->string('tingrett');
             $table->string('dommersTitleNavn');
