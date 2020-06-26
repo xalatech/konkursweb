@@ -13,7 +13,7 @@ class CreateAdvokatFirmasTable extends Migration
      */
     public function up()
     {
-        Schema::create('advokat_firmaer', function (Blueprint $table) {
+        Schema::create('advokat_firma', function (Blueprint $table) {
             $table->id('firma_id');
             $table->string('navn')->index();
             $table->string('adresse')->nullable();
@@ -38,6 +38,6 @@ class CreateAdvokatFirmasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('advokat_firmaer');
+        Schema::dropIfExists('advokat_firma');
     }
 }

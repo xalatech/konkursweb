@@ -9,7 +9,7 @@ class BoInfo extends Model
 {
     use BelongsToTenants;
 
-    protected $table = 'bo_infoer';
+    protected $table = 'bo_info';
 
     protected $fillable = [
         'organisasjonsnummer', 'saksnummer', 'debitor', 'firma_id', 'kommune_id'

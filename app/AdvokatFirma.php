@@ -7,7 +7,7 @@ use App\User;
 
 class AdvokatFirma extends Model
 {
-    protected $table = 'advokat_firmaer';
+    protected $table = 'advokat_firma';
 
     protected $fillable = [
         'organisasjonsnummer', 'navn', 'adresse', 'postnummer', 'poststed', 'epost', 'bankkonto', 'banknavn', 'kontaktperson', 'fakturamottaker', 'pris'
