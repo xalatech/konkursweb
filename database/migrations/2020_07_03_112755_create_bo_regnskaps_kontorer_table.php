@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnsattsTable extends Migration
+class CreateBoRegnskapsKontorerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,16 @@ class CreateAnsattsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ansatter', function (Blueprint $table) {
+        Schema::create('bo_regnskaps_kontorer', function (Blueprint $table) {
             $table->id();
-            $table->integer('firma_id')->unsigned()->index();
             $table->unsignedBigInteger('bo_id')->index();
-            $table->string('fornavn');
-            $table->string('etternavn');
-            $table->string('epost')->nullable();
-            $table->string('stilling')->nullable();
-            $table->string('stilling_prosent')->nullable();
+            $table->unsignedBigInteger('regnskaps_kontor_id')->index();
+            $table->date('RegnskapsForerOppdragFraDato');
 
             $table->timestamps();
 
             $table->foreign('bo_id')->references('id')->on('bo_info')->onDelete('cascade');
+            $table->foreign('regnskaps_kontor_id')->references('id')->on('regnskaps_kontorer')->onDelete('cascade');
         });
     }
 
@@ -36,6 +33,6 @@ class CreateAnsattsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ansatter');
+        Schema::dropIfExists('bo_regnskaps_kontorer');
     }
 }

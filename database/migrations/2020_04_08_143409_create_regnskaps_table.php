@@ -29,7 +29,7 @@ class CreateRegnskapsTable extends Migration
 
             $table->timestamps();
 
-            $table->foreign('bo_id')->references('id')->on('bo_infoer')->onDelete('cascade');
+            $table->foreign('bo_id')->references('id')->on('bo_info')->onDelete('cascade');
         });
     }
 

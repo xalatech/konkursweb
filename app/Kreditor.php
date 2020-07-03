@@ -3,11 +3,22 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Torzer\Awesome\Landlord\BelongsToTenants;
 
 class Kreditor extends Model
 {
-    use BelongsToTenants;
-
     protected $table = 'kreditorer';
+
+    protected $fillable = [
+        'Kreditor',
+        'Adresse',
+        'PostNr',
+        'PostSted',
+        'EpostAdresse',
+        'BankNavn',
+        'BankKonto',
+        'SwiftKode',
+        'KontaktPerson',
+        'OnskerFordringsBekreftelse',
+        'OnskerEposter'
+    ];
 }
